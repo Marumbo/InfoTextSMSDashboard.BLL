@@ -5,13 +5,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AfricasTalking.NET" Version="1.2.2" />
+    <PackageReference Include="AfricasTalking.NET" Version="1.1.8" />
     <PackageReference Include="AutoMapper" Version="10.1.1" />
-    <PackageReference Include="InfoTextSMSDashboard.DAL" Version="1.0.0.1" />
-    <PackageReference Include="InfoTextSMSDashboard.DataModels" Version="1.0.0.5" />
+    <PackageReference Include="InfoTextSMSDashboard.DAL" Version="1.0.0.2" />
+    <PackageReference Include="InfoTextSMSDashboard.DataModels" Version="1.0.0.6" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL.Design" Version="1.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\InfoTextSMSDashboard.DataModels\InfoTextSMSDashboard.DataModels.csproj" />
   </ItemGroup>
 
 </Project>

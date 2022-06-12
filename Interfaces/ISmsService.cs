@@ -16,6 +16,6 @@ namespace InfoTextSMSDashboard.BLL.Services
 
         Task<OutputResponse> GetMessageById(int Id);
 
-        Task<OutputResponse> SendMessageTest();
+        
     }
 }

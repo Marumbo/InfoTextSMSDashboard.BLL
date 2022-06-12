@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace InfoTextSMSDashboard.BLL.Services
@@ -16,10 +17,10 @@ namespace InfoTextSMSDashboard.BLL.Services
     public class SmsService : ISmsService
     {
 
+
+        //sandbox
         readonly string username = "sandbox";
         readonly string apiKey = "e1f52557ba4b192f302d9ea15e3786333fffe5cbfa73c3d82ad6a2db60ce43a0";
-
-
 
 
         private readonly sms_dashboardContext _context;
@@ -44,10 +45,10 @@ namespace InfoTextSMSDashboard.BLL.Services
 
             var recepients = smsObject.Recipients;
             var message = smsObject.Message;
-            var from = smsObject.From;
-            var env = "sandbox";
+            var from = smsObject.From ?? "InfoText";
+            // var env = "sandbox";
 
-            var gateway = new AfricasTalkingGateway(username, apiKey, env);
+            var gateway = new AfricasTalkingGateway(username, apiKey);
 
 
             foreach (var recepient in recepients)
@@ -177,42 +178,9 @@ namespace InfoTextSMSDashboard.BLL.Services
         }
 
 
-        public async Task<OutputResponse> SendMessageTest()
-        {
-            var username = "sandbox";
-            var apikey = "bc203009d2b240e461c22d7a959ca4d752591d4553295d991e74824d599fc9b3";
-            var recepient = "+265996282948";
-            var from = "44008";
-            var message = "Test using test details";
-            var env = "sandbox";
+       
 
-            var gateway = new AfricasTalkingGateway(username, apikey, env);
-
-            try
-            {
-                dynamic response = await gateway.SendMessage(recepient, message, from);
-
-                return new OutputResponse
-                {
-                    IsSuccess = true,
-                    Message = $"recepient: {recepient}, message: {message} from: {from}"
-                };
-
-            }
-            catch (AfricasTalkingGatewayException exception)
-            {
-                Debug.WriteLine(exception);
-
-                return new OutputResponse
-                {
-                    IsSuccess = false,
-                    Message = $"unable to send sms error:{exception}"
-                };
-            }
-
-
-
-        }
+       
     }
 
-    }
+}

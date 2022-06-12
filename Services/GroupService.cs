@@ -129,7 +129,7 @@ namespace InfoTextSMSDashboard.BLL.Services
                 return new OutputResponse
                 {
                     IsSuccess = false,
-                    Message = $"Unable to delete because no group wwith id: {id}"
+                    Message = $"Unable to delete because no group with id: {id}"
                 };
             }
 
